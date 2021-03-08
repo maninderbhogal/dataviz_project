@@ -21,35 +21,58 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?film ?genreWikidata ?releaseDate WHERE {
+SELECT DISTINCT ?film ?filmLabel ?genreWikidata ?genreLabel WHERE {
   ?film a frbroo:F1_Work .
-
-  {
-    ?film crm:P2_has_type ?genre .
-    ?genre owl:sameAs ?genreWikidata .
-  } UNION {
-    ?film owl:sameAs ?filmWikidata .
-    SERVICE <https://query.wikidata.org/sparql> {
-      ?filmWikidata wdt:P136 ?genreWikidata .
-    }
-  }
+  ?film rdfs:label ?filmLabel .
+  ?film crm:P2_has_type ?genre .
+  ?genre owl:sameAs ?genreWikidata .
+  ?genre rdfs:label ?genreLabel .
 }
 """
     sparql.setQuery(query)
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()['results']['bindings']
 
-    dict_data = [{ 'film': r['film']['value'], 'genreWikidata': r['genreWikidata']['value'] } for r in results]
-    with open('movie_genres.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['film', 'genreWikidata'])
-        writer.writeheader()
-        for data in dict_data:
-            writer.writerow(data)
+    dict_data = [{ 'film': r['film']['value'],
+                   'filmLabel': r['filmLabel']['value'],
+                   'genre': r['genreWikidata']['value'],
+                   'genreLabel': r['genreLabel']['value']
+                 } for r in results]
+
+    return dict_data
+
+def fetch_wikidata_genres():
+    sparql = SPARQLWrapper(WIKIDATA_SPARQL_ENDPOINT)
+
+    query = """
+SELECT DISTINCT ?genre
+WHERE
+{
+  ?genre wdt:P31/wdt:279* wd:Q201658 .
+  # SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+}
+"""
+
+    sparql.setQuery(query)
+    sparql.setReturnFormat(JSON)
+    results = sparql.query().convert()['results']['bindings']
+
+    genres = []
+    for r in results:
+        genres.append(r['genre']['value'])
+
+    return genres
 
 def main():
-    fetch_movie_genres()
+    movies_genres = fetch_movie_genres()
+    wd_genres = fetch_wikidata_genres()
+    filtered_movies_genres = filter(lambda m: m['genre'] in wd_genres, movies_genres)
+
+    with open('movie_genres.csv', 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=['film', 'filmLabel', 'genre', 'genreLabel'])
+        writer.writeheader()
+        for m in filtered_movies_genres:
+            writer.writerow(m)
 
 if __name__ == '__main__':
     main()
-
-
