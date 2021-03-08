@@ -1,9 +1,9 @@
-"""Script qui extrait tous les films avec leurs genres cinématographiques et
-leur année de sortie.
+"""Script qui extrait tous les films avec leurs genres cinématographiques.
 
 Le genre cinématographique extrait correspond à une entité Wikidata. Dans ce script,
 on combine les données de la CQ et ceux de Wikidata.
 """
+
 import csv
 import multiprocessing
 from SPARQLWrapper import SPARQLWrapper, JSON, CSV

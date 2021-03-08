@@ -1,9 +1,6 @@
-"""Script qui extrait tous les films avec leurs genres cinématographiques et
-leur année de sortie.
-
-Le genre cinématographique extrait correspond à une entité Wikidata. Dans ce script,
-on combine les données de la CQ et ceux de Wikidata.
+"""Script qui extrait tous les films avec les langues parlées.
 """
+
 import csv
 import multiprocessing
 from SPARQLWrapper import SPARQLWrapper, JSON, CSV
@@ -24,7 +21,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?film ?filmLabel ?langueWikidata ?langueLabel WHERE {
   ?film a frbroo:F1_Work .
   ?film rdfs:label ?filmLabel .
-  ?film crm:P2_has_type ?langue .
+  ?recordingWork frbroo:R2_is_derivative_of ?film .
+  ?recordingEvent frbroo:R22_created_a_realization_of ?recordingWork .
+  ?recordingEvent frbroo:R21_created ?recording .
+  ?recording crm:P72_has_language ?langue .
   ?langue owl:sameAs ?langueWikidata .
   ?langue rdfs:label ?langueLabel .
 }
@@ -45,11 +45,10 @@ def fetch_wikidata_langues():
     sparql = SPARQLWrapper(WIKIDATA_SPARQL_ENDPOINT)
 
     query = """
-SELECT DISTINCT ?genre
+SELECT DISTINCT ?langue
 WHERE
 {
-  ?langue wdt:P31/wdt:279* wd:P364 .
-  # SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+  ?langue wdt:P31/wdt:279* wd:Q1288568 .
 }
 """
 
@@ -69,7 +68,7 @@ def main():
     filtered_movies_langues = filter(lambda m: m['langue'] in wd_langues, movies_langues)
 
     with open('movie_langues.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['film', 'filmLabel', 'genre', 'genreLabel'])
+        writer = csv.DictWriter(csvfile, fieldnames=['film', 'filmLabel', 'langue', 'langueLabel'])
         writer.writeheader()
         for m in filtered_movies_langues:
             writer.writerow(m)
