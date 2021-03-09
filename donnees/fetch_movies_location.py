@@ -18,9 +18,9 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?film ?filmLabel ?placeWikidata ?placeLabel WHERE {
+SELECT DISTINCT ?film ?titreOriginal ?placeWikidata ?placeLabel WHERE {
   ?film a frbroo:F1_Work .
-  ?film rdfs:label ?filmLabel .
+  ?film rdfs:label ?titreOriginal .
   ?recordingWork frbroo:R2_is_derivative_of ?film .
   ?recordingEvent frbroo:R22_created_a_realization_of ?recordingWork .
   ?recordingEvent crm:P7_took_place_at ?place .
@@ -33,7 +33,7 @@ SELECT DISTINCT ?film ?filmLabel ?placeWikidata ?placeLabel WHERE {
     results = sparql.query().convert()['results']['bindings']
 
     dict_data = [{ 'film': r['film']['value'],
-                   'filmLabel': r['filmLabel']['value'],
+                   'titreOriginal': r['titreOriginal']['value'],
                    'place': r['placeWikidata']['value'],
                    'placeLabel': r['placeLabel']['value']
                  } for r in results]
@@ -44,7 +44,7 @@ def main():
     movies_places = fetch_movie_places()
 
     with open('movie_places.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['film', 'filmLabel', 'place', 'placeLabel'])
+        writer = csv.DictWriter(csvfile, fieldnames=['film', 'titreOriginal', 'place', 'placeLabel'])
         writer.writeheader()
         for m in movies_places:
             writer.writerow(m)

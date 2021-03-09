@@ -18,9 +18,9 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?film ?filmLabel ?langueWikidata ?langueLabel WHERE {
+SELECT DISTINCT ?film ?titreOriginal ?langueWikidata ?langueLabel WHERE {
   ?film a frbroo:F1_Work .
-  ?film rdfs:label ?filmLabel .
+  ?film rdfs:label ?titreOriginal .
   ?recordingWork frbroo:R2_is_derivative_of ?film .
   ?recordingEvent frbroo:R22_created_a_realization_of ?recordingWork .
   ?recordingEvent frbroo:R21_created ?recording .
@@ -34,7 +34,7 @@ SELECT DISTINCT ?film ?filmLabel ?langueWikidata ?langueLabel WHERE {
     results = sparql.query().convert()['results']['bindings']
 
     dict_data = [{ 'film': r['film']['value'],
-                   'filmLabel': r['filmLabel']['value'],
+                   'titreOriginal': r['titreOriginal']['value'],
                    'langue': r['langueWikidata']['value'],
                    'langueLabel': r['langueLabel']['value']
                  } for r in results]
@@ -68,7 +68,7 @@ def main():
     filtered_movies_langues = filter(lambda m: m['langue'] in wd_langues, movies_langues)
 
     with open('movie_langues.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['film', 'filmLabel', 'langue', 'langueLabel'])
+        writer = csv.DictWriter(csvfile, fieldnames=['film', 'titreOriginal', 'langue', 'langueLabel'])
         writer.writeheader()
         for m in filtered_movies_langues:
             writer.writerow(m)
