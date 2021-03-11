@@ -5,9 +5,17 @@ pd.set_option('display.max_columns', None)
 #create dataframes for all csv files
 film_df = pd.read_csv("donnees/film.csv")
 
+# Get indexes for which column anneeSortie has value less than 1894
+#indexNames = film_df[film_df['anneeSortie'] < 1900].index
+# Delete these row indexes from dataFrame
+#film_df.drop(indexNames , inplace=True)
+
 print(film_df)
 description = film_df.describe()
 print(description)
+print("annee sortie: ")
+print(film_df['anneeDebProd'].isna().sum())
+
 
 film_genre = pd.read_csv("donnees/movie_genres.csv")
 film_langue = pd.read_csv("donnees/movie_langues.csv")
