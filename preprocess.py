@@ -5,16 +5,16 @@ pd.set_option('display.max_columns', None)
 #create dataframes for all csv files
 film_df = pd.read_csv("donnees/film.csv")
 
-# Get indexes for which column anneeSortie has value less than 1894
-#indexNames = film_df[film_df['anneeSortie'] < 1900].index
+#Get indexes for which column anneeSortie has value less than 1894
+#indexNames = film_df[film_df['anneeSortie'].isna()].index
 # Delete these row indexes from dataFrame
 #film_df.drop(indexNames , inplace=True)
 
-print(film_df)
+#print(film_df)
 description = film_df.describe()
-print(description)
-print("annee sortie: ")
-print(film_df['anneeDebProd'].isna().sum())
+#print(description)
+#print("annee sortie: ")
+#print(film_df['anneeSortie'].isna().sum())
 
 
 film_genre = pd.read_csv("donnees/movie_genres.csv")
@@ -23,7 +23,11 @@ film_places = pd.read_csv("donnees/movie_places.csv")
 
 film_genre = film_genre.sort_values(by='titreOriginal')
 genre_counts = film_genre.groupby(['genreLabel']).agg(['count'])
+print(genre_counts)
 print(genre_counts.describe())
+print("count of na genres: ")
+print(film_genre['genreLabel'].isna().sum())
+
 
 
 #merging all dataframes, many films are repeated as some have many genres
