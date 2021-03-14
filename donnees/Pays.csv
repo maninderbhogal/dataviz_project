@@ -1,0 +1,380 @@
+PaysId,terme
+1,Afghanistan
+2,Afrique
+3,Afrique du Sud
+4,Albanie
+5,Algérie
+6,Allemagne
+7,"Allemagne, République fédérale d'"
+8,"Allemande, République démocratique"
+9,Amérique latine
+10,Andorre
+11,Angola
+12,Anguilla
+13,Antarctique
+14,Antigua-et-Barbuda
+15,Antilles
+16,Antilles néerlandaises
+17,Arabie saoudite
+18,Argentine
+19,Arménie
+20,Aruba
+21,Asie
+22,Australie
+23,Autriche
+24,Azerbaïdjan
+25,Bahamas
+26,Bahreïn
+27,Balkans
+28,Bangladesh
+29,Barbade
+30,Belgique
+31,Belize
+32,Bénin
+33,Bermudes
+34,Bhoutan
+35,Biélorussie
+36,Birmanie
+37,Bolivie
+38,Bosnie-Herzégovine
+39,Botswana
+40,"Bouvet, île"
+41,Brésil
+42,Brunéi Darussalam
+43,Bulgarie
+44,Burkina Faso
+45,Burundi
+46,"Caïmanes, îles"
+47,Cambodge
+48,Cameroun
+49,Canada
+50,Canada : Acadie
+51,Canada : Alberta
+52,Canada : Colombie-Britannique
+53,Canada : Île-du-Prince-Édouard
+54,Canada : Manitoba
+55,Canada : Nouveau-Brunswick
+56,Canada : Nouvelle-Écosse
+57,Canada : Ontario
+58,Canada : Saskatchewan
+59,Canada : Terre-Neuve
+60,Canada : Territoire du Nord-Ouest
+61,Canada : Yukon
+62,Cap-vert
+63,"Centrafricaine, République"
+64,Ceylan
+65,Chili
+66,Chine
+67,"Christmas, île"
+68,Chypre
+69,"Cocos (Keeling), îles des"
+70,Colombie
+71,Communauté des États Indépendants
+72,Comores
+73,Congo
+74,"Cook, îles"
+75,Corée
+76,"Corée, République de"
+77,"Corée, République populaire démocratique de"
+78,Costa Rica
+79,Côte d'Ivoire
+80,Croatie
+81,Cuba
+82,Dahomey
+83,Danemark
+84,Djibouti
+85,"Dominicaine, République"
+86,Dominique
+87,Égypte
+88,Eire
+89,Émirats arabes unis
+90,Équateur
+91,Espagne
+92,Espagne : Catalogne
+93,Estonie
+94,États-Unis
+95,États-Unis : Floride
+96,États-Unis : Hawaï
+97,Éthiopie
+98,Europe
+99,Europe de l'Est
+100,Europe de l'Ouest
+101,"Falkland, îles (Malvinas)"
+102,"Féroé, îles"
+103,Fidji
+104,Finlande
+105,France
+106,France : Aquitaine
+107,France : Ardèche
+108,France : Bretagne
+109,Gabon
+110,Gambie
+111,Georgie
+112,Ghana
+113,Gibraltar
+114,Grèce
+115,Grenade
+116,Groenland
+117,Guadeloupe
+118,Guam
+119,Guatemala
+120,Guinée
+121,Guinée équatoriale
+122,Guinée-Bissau
+123,Guyana
+124,Guyane française
+125,Haïti
+126,Haute-Volta
+127,"Heard et Mc Donald, îles"
+128,Honduras
+129,Hong-Kong
+130,Hongrie
+131,Îles mineures éloignées des États-Unis
+132,Îles Vierges (britanniques)
+133,Îles Vierges (É.-U.)
+134,Inde
+135,Inde : Tamil
+136,Indonésie
+137,"Iran, République islamique d'"
+138,Irak
+139,Irlande
+140,Islande
+141,Israël
+142,Italie
+143,Jamaïque
+144,Japon
+145,Jordanie
+146,Kampuchea démocratique
+147,Kazakhstan
+148,Kenya
+149,Kirghizstan
+150,Kiribati
+151,Koweït
+152,"Laos, République démocratique populaire"
+153,Lesotho
+154,Lettonie
+155,Liban
+156,Libéria
+157,"Libyenne, Jamahiriya arabe"
+158,Liechtenstein
+159,Lituanie
+160,Luxembourg
+161,Macao
+162,Macédoine
+163,Madagascar
+164,Maghreb
+165,Malaisie
+166,Malawi
+167,Maldives
+168,Mali
+169,Malte
+170,"Mariannes du Nord, îles"
+171,Maroc
+172,"Marshall, îles"
+173,Martinique
+174,Maurice
+175,Mauritanie
+176,Mexique
+177,Micronésie
+178,Moldavie
+179,Monaco
+180,Mongolie
+181,Montenegro
+182,Montserrat
+183,Moyen-Orient
+184,Mozambique
+185,Namibie
+186,Nauru
+187,Népal
+188,Nicaragua
+189,Niger
+190,Nigéria
+191,Niqué
+192,"Norfolk, île"
+193,Norvège
+194,Nouvelle-Calédonie
+195,Nouvelle-Zélande
+196,"Océan indien, territoire britannique de l'"
+197,Oman
+198,Ouganda
+199,Ouzbékistan
+200,Pakistan
+201,Palau
+202,Palestine
+203,Panama
+204,Papouasie-Nouvelle-Guinée
+205,Paraguay
+206,Pays arabes
+207,Pays-Bas
+208,Pérou
+209,Philippines
+210,Pitcairn
+211,Pologne
+212,Polynésie française
+213,Porto Rico
+214,Portugal
+215,Qatar
+216,Canada : Québec
+217,Canada : Québec : Abitibi-Témiscamingue
+218,Canada : Québec : Bas-Saint-Laurent
+219,Canada : Québec : Estrie
+220,Canada : Québec : Gaspésie-Îles-de-la-Madeleine
+222,Canada : Québec : Outaouais
+223,Canada : Québec : Saguenay-Lac-Saint-Jean
+224,Réunion
+225,Rhodésie
+226,Roumanie
+227,Royaume-Uni
+228,Royaume-Uni : Écosse
+229,Russie
+230,"Russie, Fédération de"
+231,Rwanda
+232,Sahara occidental
+233,Saint-Kitts-et-Nevis
+234,Saint-Marin
+235,Saint-Pierre-et-Miquelon
+236,Saint-Vincent-et-Grenadines
+237,Sainte-Hélène
+238,Sainte-Lucie
+239,"Salomon, îles"
+240,"Salvador, El"
+241,Samoa
+242,Samoa américaines
+243,Sao Tomé-et-Principe
+244,Scandinavie
+245,Sénégal
+246,Serbie
+247,Seychelles
+248,Sierra Leone
+249,Singapour
+250,Slovénie
+251,Somalie
+252,Soudan
+253,Sri Lanka
+254,Suède
+255,Suisse
+256,Suriname
+257,Svalbard et île Jan Mayen
+258,Swaziland
+259,"Syrienne, République arabe"
+260,Tadjikistan
+261,"Taïwan, Province de Chine"
+262,"Tanzanie, République-Unie de"
+263,Tchad
+264,Tchécoslovaquie
+265,Terres australes françaises
+266,Thaïlande
+267,Tiers monde
+268,Timor oriental
+269,Togo
+270,Tokélaou
+271,Tonga
+272,Trinité-et-Tobago
+273,Tunisie
+274,Turkménistan
+275,"Turks et Caïques, îles"
+276,Turquie
+277,Tuvalu
+278,Ukraine
+279,URSS
+280,URSS : Arménie
+281,URSS : Estonie
+282,URSS : Géorgie
+283,URSS : Lettonie
+284,URSS : Lituanie
+285,URSS : Ouzbékistan
+286,Uruguay
+287,Vanuatu
+288,"Vatican, État de la Cité du (Saint-Siège)"
+289,Venezuela
+290,Viet Nam
+291,"Viet Nam, République démocratique du"
+292,"Viet Nam, République du"
+293,"Wallis et Futuna, îles"
+294,Yémen
+295,Yémen démocratique
+296,Yougoslavie
+297,Zaïre
+298,Zambie
+299,Zimbabwe
+300,Zone neutre
+305,Slovaquie
+311,"Chine, République populaire de"
+312,États-Unis : Idaho
+313,République tchèque
+314,États-Unis : Alabama
+315,États-Unis : Alaska
+316,États-Unis : Arizona
+317,États-Unis : Arkansas
+318,États-Unis : Californie
+319,États-Unis : Caroline du Nord
+320,États-Unis : Caroline du Sud
+321,États-Unis : Colorado
+322,États-Unis : Connecticut
+323,États-Unis : Dakota du Nord
+324,États-Unis : Dakota du Sud
+325,États-Unis : Delaware
+326,États-Unis : Géorgie
+327,États-Unis : Illinois
+328,États-Unis : Indiana
+329,États-Unis : Iowa
+330,États-Unis : Kansas
+331,États-Unis : Kentucky
+332,États-Unis : Louisiane
+333,États-Unis : Maine
+334,États-Unis : Maryland
+335,États-Unis : Massachusetts
+336,États-Unis : Michigan
+337,États-Unis : Minnesota
+338,États-Unis : Mississippi
+339,États-Unis : Missouri
+340,États-Unis : Montana
+341,États-Unis : Nebraska
+342,États-Unis : Nevada
+343,États-Unis : New Hampshire
+344,États-Unis : New Jersey
+345,États-Unis : New York
+346,États-Unis : Nouveau-Mexique
+347,États-Unis : Ohio
+348,États-Unis : Oklahoma
+349,États-Unis : Oregon
+350,États-Unis : Pennsylvanie
+351,États-Unis : Rhode Island
+352,États-Unis : Tennessee
+353,États-Unis : Texas
+354,États-Unis : Utah
+355,États-Unis : Vermont
+356,États-Unis : Virginie
+357,États-Unis : Virginie-Occidentale
+358,États-Unis : Washington
+359,États-Unis : Wisconsin
+360,États-Unis : Wyoming
+361,Espagne : Pays basque
+363,Iran
+364,France : Camargue
+365,France : Isère
+366,France : Gard
+368,Espagne : Galice
+369,Îles Canaries
+370,Marrosu
+371,France : Normandie
+372,France : Corse
+373,France : Alsace
+374,Indochine
+375,France : Lorraine
+376,McKenna
+377,Europe centrale
+378,Bailliu
+379,Nunavut
+380,Kurdistan
+382,Skolnik
+387,France : Occitanie
+389,Pays nordiques
+390,Bollywood
+391,France : Bourgogne
+392,Clay
+393,Chaudier
+394,Île Maurice
+395,Côté
+396,Amérique centrale
+397,France : Poitou
