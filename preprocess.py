@@ -20,13 +20,17 @@ description = film_df.describe()
 film_genre = pd.read_csv("donnees/movie_genres.csv")
 film_langue = pd.read_csv("donnees/movie_langues.csv")
 film_places = pd.read_csv("donnees/movie_places.csv")
+film_directors = pd.read_csv("donnees/movie_directors.csv")
 
-film_genre = film_genre.sort_values(by='titreOriginal')
-genre_counts = film_genre.groupby(['genreLabel']).agg(['count'])
-print(genre_counts)
-print(genre_counts.describe())
-print("count of na genres: ")
-print(film_genre['genreLabel'].isna().sum())
+print(film_directors)
+print(film_directors.describe())
+
+# film_genre = film_genre.sort_values(by='titreOriginal')
+# genre_counts = film_genre.groupby(['genreLabel']).agg(['count'])
+# print(genre_counts)
+# print(genre_counts.describe())
+# print("count of na genres: ")
+# print(film_genre['genreLabel'].isna().sum())
 
 
 

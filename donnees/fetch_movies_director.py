@@ -20,17 +20,17 @@ PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?personWikidata ?personLabel ?film ?titreOriginal WHERE {
+SELECT DISTINCT ?directorWikidata ?directorLabel ?film ?titreOriginal WHERE {
   ?film rdf:type frbroo:F1_Work .
   ?film rdfs:label ?titreOriginal .
   ?recordingWork frbroo:R2_is_derivative_of ?film .
   ?recordingEvent frbroo:R22_created_a_realization_of ?recordingWork .
   ?recordingEvent crm:P9_consists_of ?recordingActivity .
   ?recordingActivityC crm:P01_has_domain ?recordingActivity .
-  ?recordingActivityC crm:P02_has_range ?person .
+  ?recordingActivityC crm:P02_has_range ?director .
   ?recordingActivityC crm:P14.1_in_the_role_of </resource/Role1> .
-  ?person owl:sameAs ?personWikidata .
-  ?person rdfs:label ?personLabel .
+  ?director owl:sameAs ?directorWikidata .
+  ?director rdfs:label ?directorLabel .
 }
 """
     sparql.setQuery(query)
@@ -39,8 +39,8 @@ SELECT DISTINCT ?personWikidata ?personLabel ?film ?titreOriginal WHERE {
 
     dict_data = [{'film': r['film']['value'],
                  'titreOriginal': r['titreOriginal']['value'],
-                  'person': r['personWikidata']['value'],
-                  'personLabel': r['personLabel']['value']
+                  'director': r['directorWikidata']['value'],
+                  'directorLabel': r['directorLabel']['value']
                  } for r in results]
 
     return dict_data
@@ -49,10 +49,10 @@ def fetch_wikidata_directors():
     sparql = SPARQLWrapper(WIKIDATA_SPARQL_ENDPOINT)
 
     query = """
-SELECT DISTINCT ?person
+SELECT DISTINCT ?director
 WHERE
 {
-  ?person wdt:P106 wd:Q2526255 .
+  ?director wdt:P106 wd:Q2526255 .
   # SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
 
 }
@@ -64,17 +64,17 @@ WHERE
 
     persons = []
     for r in results:
-        persons.append(r['person']['value'])
+        persons.append(r['director']['value'])
 
     return persons
 
 def main():
     movies_directors = fetch_movie_directors()
     wd_directors = fetch_wikidata_directors()
-    filtered_movies_directors = filter(lambda m: m['person'] in wd_directors, movies_directors)
+    filtered_movies_directors = filter(lambda m: m['director'] in wd_directors, movies_directors)
 
     with open('movie_directors.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['film', 'titreOriginal', 'person', 'personLabel'])
+        writer = csv.DictWriter(csvfile, fieldnames=['film', 'titreOriginal', 'director', 'directorLabel'])
         writer.writeheader()
         for m in filtered_movies_directors:
             writer.writerow(m)
