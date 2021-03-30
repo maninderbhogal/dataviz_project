@@ -40,6 +40,7 @@ SELECT DISTINCT ?film ?titreOriginal ?placeWikidata ?placeLabel WHERE {
 
     return dict_data
 
+
 def main():
     movies_places = fetch_movie_places()
 
